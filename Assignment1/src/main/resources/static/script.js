@@ -39,11 +39,13 @@ async function startRecording() {
 	
 		const stream = await navigator.mediaDevices.getUserMedia(constraints);
 	
-		mediaRecorder = new MediaRecorder(stream);
+		const recordingOptions = {audioBitsPerSecond: 64000};
+		
+		mediaRecorder = MediaRecorder(stream, recordingOptions);
 		audioParts = [];
 		mediaRecorder.ondataavailable = handleDataInput;
 		mediaRecorder.onstop = uploadRecording;
-		mediaRecorder.start();
+		mediaRecorder.start(1000);
 	
 	
 		startButton.disabled = true;
