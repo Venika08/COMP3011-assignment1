@@ -4,18 +4,27 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Speech-to-Text</title>
-	</head
+	</head>
 	<body>
+		
+		<main>
 		<h1>Speech-To-Text</h1>
 		
-		<p id="status">Please press Start Recording to begin.</p>
+		<p id="status" role="status" aria-live="polite" aria-atomic="true">Please press Start Recording to begin.</p>
 		
-		<button id="startButton">Start Recording</button>
-		<button id="stopButton" disabled>Stop Recording</button>
+		<button id="startButton" type="button">Start Recording</button>
+		<button id="stopButton" type="button" disabled>Stop Recording</button>
 		
-		<h2>Transcription</h2>
-		<p id="transcription">The transcription of the recording will appear here.</p>
-		
-		<script src="script.js"></script>
+		<section aria-labelledby="transcriptionHeading">
+			<h2 id="transcriptionHeading">
+				Transcription
+			</h2>
+			
+			<p id="transcription" aria-live="polite" aria-atomic="true">The transcription of your audio will appear here.</p>
+			
+		</section>
+		</main>
+
+				<script src="script.js"></script>
 	</body>
 </html>

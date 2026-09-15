@@ -34,22 +34,31 @@ async function uploadRecording() {
 
 
 async function startRecording() {
-	const constraints = { audio: true };
-	const stream = await navigator.mediaDevices.getUserMedia(constraints);
+	try {
+		const constraints = {audio: true};
 	
-	mediaRecorder = new MediaRecorder(stream);
-	audioParts = [];
-	mediaRecorder.ondataavailable = handleDataInput;
-	mediaRecorder.onstop = uploadRecording;
-	mediaRecorder.start();
+		const stream = await navigator.mediaDevices.getUserMedia(constraints);
+	
+		mediaRecorder = new MediaRecorder(stream);
+		audioParts = [];
+		mediaRecorder.ondataavailable = handleDataInput;
+		mediaRecorder.onstop = uploadRecording;
+		mediaRecorder.start();
 	
 	
-	startButton.disabled = true;
-	stopButton.disabled = false;
-	statusText.textContent = "Recording...";
+		startButton.disabled = true;
+		stopButton.disabled = false;
+		statusText.textContent = "Recording...";
 	
+	} catch (error) {
+		startButton.disabled = false;
+		stopButton.disabled = true;
+		statusText.textContent = "Microphone access was denied.";
+	
+	}
 }
-	startButton.addEventListener("click", startRecording);
+
+
 	
 function stopRecording() {
 	mediaRecorder.stop();
@@ -66,5 +75,7 @@ function stopRecording() {
 }
 
 stopButton.addEventListener("click", stopRecording);
+startButton.addEventListener("click", startRecording);
+
 
 	
