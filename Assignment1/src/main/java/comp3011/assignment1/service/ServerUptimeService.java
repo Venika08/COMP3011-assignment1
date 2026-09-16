@@ -27,7 +27,6 @@ public class ServerUptimeService {
 	}
 	
 	/**
-	 * Creates a snapshot of the server's current uptime.
 	 * 
 	 * @return current server uptime information
 	 */

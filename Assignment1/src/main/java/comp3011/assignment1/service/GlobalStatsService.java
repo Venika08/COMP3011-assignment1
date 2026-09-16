@@ -16,7 +16,6 @@ public class GlobalStatsService {
 	private long outputTokens;
 	
 	/**
-	 * Adds token usage from one completed time. 
 	 * 
 	 * @param additionalInputTokens input tokens consumed by the request 
 	 * @param additionalOnputTokens output tokens produced by the request
@@ -36,7 +35,6 @@ public class GlobalStatsService {
 	}
 	
 	/**
-	 * Returns a consistent snapshot of the global token counters. 
 	 * 
 	 * @return token usage
 	 */

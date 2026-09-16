@@ -9,7 +9,7 @@ import comp3011.assignment1.dto.GlobalStatsResponse;
 import comp3011.assignment1.service.GlobalStatsService;
 
 /**
- * Exposes global speech-to-text usage statistics.
+ * Global speech-to-text usage statistics.
  */
 @RestController
 @RequestMapping("/api/v1/global")
@@ -27,7 +27,7 @@ public class GlobalStatsController {
     }
 
     /**
-     * Returns cumulative token usage since server startup.
+     * Returns token usage 
      *
      * @return current global token statistics
      */

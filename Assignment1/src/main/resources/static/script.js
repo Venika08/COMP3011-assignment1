@@ -34,6 +34,10 @@ async function uploadRecording() {
 
 
 async function startRecording() {
+	startButton.disabled = true;
+	stopButton.disabled = false;
+	statusText.textContent = "Recording...";
+	
 	try {
 		const constraints = {audio: true};
 	
@@ -41,21 +45,22 @@ async function startRecording() {
 	
 		const recordingOptions = {audioBitsPerSecond: 64000};
 		
-		mediaRecorder = MediaRecorder(stream, recordingOptions);
+		mediaRecorder = new MediaRecorder(stream, recordingOptions);
 		audioParts = [];
 		mediaRecorder.ondataavailable = handleDataInput;
 		mediaRecorder.onstop = uploadRecording;
 		mediaRecorder.start(1000);
 	
 	
-		startButton.disabled = true;
-		stopButton.disabled = false;
-		statusText.textContent = "Recording...";
 	
 	} catch (error) {
+		console.error("Recording error:", error);
+		
 		startButton.disabled = false;
 		stopButton.disabled = true;
-		statusText.textContent = "Microphone access was denied.";
+		
+		statusText.textContent = "Recording could not continue: " + error.message;
+	
 	
 	}
 }

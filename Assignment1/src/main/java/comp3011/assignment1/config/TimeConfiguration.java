@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Provides application-wide time configuration.
+ * Provides time configuration.
  */
 @Configuration
 public class TimeConfiguration {

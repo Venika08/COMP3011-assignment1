@@ -114,6 +114,7 @@ class ConcurrentTranscriptionControllerTests {
 		}
 		
 		long endTime = System.currentTimeMillis();
+		
 		long duration = endTime - startTime;
 		
 		logger.info("Completed {} blocking requests in {} milliseconds", requestCount, duration);
